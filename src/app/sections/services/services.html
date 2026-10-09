@@ -1,0 +1,67 @@
+<section id="services" class="section">
+  <div class="container-xxl px-4 px-lg-5">
+
+    <!-- heading + intro -->
+    <div class="row align-items-end gy-4 mb-5">
+      <div class="col-lg-7" reveal>
+        <p class="label mb-3">/ Services</p>
+        <h2 class="mb-0">Registered services.</h2>
+      </div>
+      <div class="col-lg-4 offset-lg-1" reveal [revealDelay]="120">
+        <p class="text-body-secondary mb-0">
+          Angular and .NET given equal weight: responsive client surfaces on top of
+          structured, transactional backends, from the interface down to the database.
+        </p>
+      </div>
+    </div>
+
+    <!-- system panel -->
+    <div class="sys" reveal>
+      <div class="sys__head">
+        <span class="label d-flex align-items-center gap-2">
+          <i class="sys__dot"></i>Full system stack load
+        </span>
+        <span class="label d-none d-sm-inline">Client → Database</span>
+      </div>
+
+      <!-- pipeline -->
+          <!-- pipeline -->
+      <ol class="flow" aria-label="System pipeline">
+        @for (s of pipeline; track s.title; let i = $index) {
+          <li class="flow__item" [class.is-core]="s.core" reveal [revealDelay]="i * 90">
+            <span class="flow__node" aria-hidden="true"></span>
+            <div class="card step" [class.is-core]="s.core">
+              <div class="card-body step__body">
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                  <span class="label">Step {{ pad(i + 1) }}</span>
+                  @if (s.core) {
+                    <span class="chip chip--active">Core</span>
+                  }
+                </div>
+                <span class="label step__phase">{{ s.phase }}</span>
+                <h3 class="step__title">{{ s.title }}</h3>
+                <p class="step__detail">{{ s.detail }}</p>
+                <span class="label step__tag">{{ s.tag }}</span>
+              </div>
+            </div>
+          </li>
+        }
+      </ol>
+
+      <!-- capabilities -->
+      <div class="row row-cols-2 row-cols-xl-4 g-3 mt-1">
+        @for (c of capabilities; track c.label; let i = $index) {
+          <div class="col" reveal [revealDelay]="i * 90">
+            <div class="card cap">
+              <div class="card-body cap__body">
+                <span class="label d-block mb-2">{{ c.label }}</span>
+                <span class="cap__value">{{ c.value }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

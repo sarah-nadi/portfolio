@@ -1,0 +1,180 @@
+/* ───────── Bootstrap theme overrides ───────── */
+:root,
+[data-bs-theme='light'] {
+  /* surfaces & ink */
+  --bs-body-bg: #FAF8F5;
+  --bs-body-bg-rgb: 250, 248, 245;
+  --bs-body-color: #121214;
+  --bs-body-color-rgb: 18, 18, 20;
+  --bs-secondary-color: #4A4A4F;
+  --bs-secondary-color-rgb: 74, 74, 79;
+  --bs-tertiary-color: #76736F;
+  --bs-secondary-bg: #F5F2EB;
+  --bs-tertiary-bg: #F5F2EB;
+  --bs-border-color: #E5E1DA;
+
+  /* accent */
+  --bs-primary: #4A0B16;
+  --bs-primary-rgb: 74, 11, 22;
+  --bs-link-color: #121214;
+  --bs-link-color-rgb: 18, 18, 20;
+  --bs-link-hover-color: #4A0B16;
+  --bs-link-hover-color-rgb: 74, 11, 22;
+  --bs-link-decoration: none;
+
+  /* fonts */
+  --bs-body-font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  --bs-body-line-height: 1.625;
+  --bs-font-monospace: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* sharp geometry everywhere */
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
+  --bs-border-radius-pill: 0;
+
+  /* design tokens used by component css */
+  --font-display: 'Bodoni Moda', Georgia, serif;
+  --font-mono: var(--bs-font-monospace);
+  --ink: #121214;
+  --panel: #F5F2EB;
+  --line: #E5E1DA;
+  --ox: #4A0B16;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --nav-h: 3.5rem;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1rem); }
+body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--ox); color: var(--bs-body-bg); }
+:focus-visible { outline: 1px solid var(--ox); outline-offset: 3px; }
+
+/* ───────── Typography (Bodoni for headings) ───────── */
+h1, h2, h3, .display-1, .display-2, .display-3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+.display-1 { font-size: clamp(2.75rem, 8vw, 4.5rem); line-height: 1.1; letter-spacing: -.03em; }
+h2 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.17; }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; }
+
+/* mono labels */
+.label {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+
+/* ───────── Buttons (Bootstrap .btn + vars) ───────── */
+.btn {
+  --bs-btn-font-family: var(--font-mono);
+  --bs-btn-font-size: .75rem;
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: .875rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.btn-ink {
+  --bs-btn-color: #FAF8F5;
+  --bs-btn-bg: #121214;
+  --bs-btn-border-color: #121214;
+  --bs-btn-hover-color: #FAF8F5;
+  --bs-btn-hover-bg: #4A0B16;
+  --bs-btn-hover-border-color: #4A0B16;
+  --bs-btn-active-bg: #4A0B16;
+  --bs-btn-active-border-color: #4A0B16;
+}
+.btn-outline-ink {
+  --bs-btn-color: #121214;
+  --bs-btn-border-color: #121214;
+  --bs-btn-hover-color: #FAF8F5;
+  --bs-btn-hover-bg: #121214;
+  --bs-btn-hover-border-color: #121214;
+  --bs-btn-active-bg: #121214;
+  --bs-btn-active-color: #FAF8F5;
+}
+
+/* ───────── Cards (Bootstrap .card + vars) ───────── */
+.card {
+  --bs-card-bg: #F5F2EB;
+  --bs-card-border-color: #E5E1DA;
+  --bs-card-border-radius: 0;
+  --bs-card-spacer-x: 1.5rem;
+  --bs-card-spacer-y: 1.5rem;
+  transition: border-color .25s var(--ease);
+}
+.card:hover { border-color: var(--ox); }
+
+/* ───────── Chips (Bootstrap .badge look) ───────── */
+.chip {
+  display: inline-flex;
+  padding: .3125rem .625rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+  transition: border-color .2s, color .2s;
+}
+.chip:hover, .chip.active { border-color: var(--ox); color: var(--ox); }
+
+/* ───────── Forms ───────── */
+.form-control, .form-select {
+  background: var(--bs-body-bg);
+  border-color: var(--line);
+}
+.form-control:focus, .form-select:focus {
+  background: var(--bs-body-bg);
+  border-color: var(--ox);
+  box-shadow: none;
+}
+.form-control::placeholder { color: var(--bs-tertiary-color); }
+.form-check-input:checked { background-color: var(--ox); border-color: var(--ox); }
+
+/* ───────── Section helpers ───────── */
+.section { padding-block: clamp(4rem, 9vw, 8rem); }
+.section-panel { background: var(--panel); }
+
+/* ───────── Scroll reveal ───────── */
+[reveal] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[reveal].is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+.btn-ox {
+  --bs-btn-color: #FAF8F5;
+  --bs-btn-bg: #4A0B16;
+  --bs-btn-border-color: #4A0B16;
+  --bs-btn-hover-color: #FAF8F5;
+  --bs-btn-hover-bg: #280005;
+  --bs-btn-hover-border-color: #280005;
+  --bs-btn-active-color: #FAF8F5;
+  --bs-btn-active-bg: #280005;
+  --bs-btn-active-border-color: #280005;
+}
+.btn-ox-outline {
+  --bs-btn-color: #4A0B16;
+  --bs-btn-border-color: #4A0B16;
+  --bs-btn-hover-color: #FAF8F5;
+  --bs-btn-hover-bg: #4A0B16;
+  --bs-btn-hover-border-color: #4A0B16;
+  --bs-btn-active-color: #FAF8F5;
+  --bs-btn-active-bg: #4A0B16;
+  --bs-btn-active-border-color: #4A0B16;
+}

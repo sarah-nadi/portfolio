@@ -1,0 +1,57 @@
+<section id="hero" class="hero">
+  <div class="container-xxl px-4 px-lg-5">
+
+    <!-- الجزء اللي ياخد طول الشاشة -->
+    <div class="hero__main">
+
+      <!-- top bar -->
+      <div class="hero__top" reveal>
+        <span class="mark"><i aria-hidden="true"></i>Sara Nadi</span>
+        <span class="hero__where">
+          <span class="loc">Cairo, EG (UTC+2)</span>
+          <span class="where__dash d-none d-md-inline" aria-hidden="true">—</span>
+          <span class="where__status d-none d-md-inline">Status: Active Ingenuity</span>
+        </span>
+      </div>
+
+      <div class="hero__body">
+        <p class="eyebrow" reveal [revealDelay]="60">
+          <span class="eyebrow__rule"></span>Engineering portfolio
+        </p>
+
+        <p class="hero__name font-display" reveal [revealDelay]="120">Sara <em>Nadi</em></p>
+
+        <h1 class="hero__title" reveal [revealDelay]="180">
+          <span class="d-block">Full Stack</span>
+          <em class="d-block hero__title-2">Developer.</em>
+        </h1>
+
+        <p class="hero__lead" reveal [revealDelay]="260">
+          Architecting end-to-end software systems with clarity and resilience. Building
+          responsive Angular interfaces alongside robust .NET backend APIs.
+        </p>
+                <div class="hero__cta" reveal [revealDelay]="340">
+          <a class="btn btn-ox" [href]="cv" download="Sara-Nadi-CV.pdf">Download CV ↓</a>
+          <a class="btn btn-ox-outline" [href]="cv" target="_blank" rel="noopener noreferrer">View CV ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- tools marquee: تحت الـ fold، بتظهر بالـ scroll -->
+    <div class="tools" reveal role="list" aria-label="Core toolkit">
+      <div class="tools__track">
+        @for (copy of [0, 1]; track copy) {
+          <ul class="tools__group" [attr.aria-hidden]="copy === 1 ? 'true' : null">
+            @for (m of meta; track m.label) {
+              <li class="meta">
+                <span class="label d-block mb-2">{{ m.label }}</span>
+                <span class="meta__value">{{ m.value }}</span>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <!-- status strip -->
+  <div class="strip d-none d-md-flex justify-content-between">
+    <span class="label">Registry v1 / Sys online</span>
+    <span class="label">Issued: {{ issued }} / Egypt</span>
+  </div>
+
+  <!-- floating bar -->
+  <nav class="navbar navbar-expand-lg bar">
+    <a class="navbar-brand brand" href="#hero" (click)="close()">
+      <span class="brand__name">Sara Nadi</span>
+      <span class="brand__role">Full Stack Engineer</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="open()"
+      (click)="toggle()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="open()">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4 py-3 py-lg-0">
+        @for (l of links; track l.id) {
+          <li class="nav-item">
+            <a
+              class="nav-link label"
+              [class.active]="active() === l.id"
+              [href]="'#' + l.id"
+              (click)="close()"
+            >{{ l.label }}</a>
+          </li>
+        }
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-ink w-100" href="#contact" (click)="close()">Let's talk ↗</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

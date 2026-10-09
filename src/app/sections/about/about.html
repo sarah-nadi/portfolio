@@ -1,0 +1,59 @@
+<section id="about" class="section section-panel">
+  <div class="container-xxl px-4 px-lg-5">
+
+    <h2 class="about__title" reveal>Design. Code. Systems.</h2>
+
+    <div class="row gx-lg-5 gy-5">
+
+      <!-- text -->
+      <div class="col-lg-7">
+        <blockquote class="about__quote" reveal [revealDelay]="80">
+          "Clean code. Clean architecture. Clean coffee cups."
+        </blockquote>
+
+        <div class="about__copy " reveal [revealDelay]="160">
+          <p >
+           I build modern web applications using C#,<strong>ASP.NET Core</strong> , SQL Server, and Angular 21, combining solid backend architecture with responsive and expressive interfaces.
+I care about writing clear, maintainable code and building applications that are reliable in real-world use.
+          </p>
+       
+
+          
+        </div>
+
+        <div class="about__meta" reveal [revealDelay]="240">
+          <div>
+            <span class="about__k">Academic foundation</span>
+            <span class="about__v">B.Sc. Educational Technology</span>
+          </div>
+          <div>
+            <span class="about__k">Scholarship diploma</span>
+            <span class="about__v about__v--accent">ITI Full Stack Development</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- spec card -->
+      <div class="col-lg-5">
+        <aside class="spec" reveal [revealDelay]="160">
+          <p class="spec__head label">Engineer register spec</p>
+
+          <dl class="spec__list">
+            @for (s of specs; track s.label) {
+              <div class="spec__row">
+                <dt class="spec__k">{{ s.label }}</dt>
+                <dd class="spec__v" [class.spec__v--accent]="s.accent">{{ s.value }}</dd>
+              </div>
+            }
+          </dl>
+
+          <div class="pledge">
+            <span class="pledge__title">Pledge of quality</span>
+            <p class="pledge__text">{{ pledge }}</p>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>

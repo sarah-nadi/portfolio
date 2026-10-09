@@ -1,0 +1,45 @@
+<section id="career" class="section">
+  <div class="container-xxl px-4 px-lg-5">
+
+    <div class="career__head" reveal>
+      <h2 class="mb-0">Career migrations.</h2>
+      <p class="career__timeline mb-0">{{ timeline }}</p>
+    </div>
+
+    <ol class="career__list">
+      @for (s of stages; track s.title; let i = $index) {
+        <li class="career__item" reveal [revealDelay]="i * 90">
+          <span class="career__node" aria-hidden="true"></span>
+
+          <article class="card stage">
+            <div class="card-body stage__body">
+              <div class="d-flex justify-content-between align-items-baseline gap-3">
+                <span class="stage__label">{{ s.label }}</span>
+                <span class="stage__year">{{ s.year }}</span>
+              </div>
+
+              <h3 class="stage__title">{{ s.title }}</h3>
+                            <div class="stage__content">
+                <p class="stage__detail">{{ s.detail }}</p>
+
+                @if (s.points) {
+                  <dl class="stage__points">
+                    @for (p of s.points; track p.label) {
+                      <div>
+                        <dt>{{ p.label }}</dt>
+                        <dd>{{ p.value }}</dd>
+                      </div>
+                    }
+                  </dl>
+                }
+              </div>
+
+              <span class="stage__tag" [class.stage__tag--accent]="s.accent">{{ s.tag }}</span>
+            </div>
+          </article>
+        </li>
+      }
+    </ol>
+
+  </div>
+</section>

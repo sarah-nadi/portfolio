@@ -1,0 +1,118 @@
+<section id="work" class="section projects">
+  <div class="container-xxl px-4 px-lg-5">
+
+    <!-- header + counter + arrows -->
+    <div class="d-flex flex-wrap align-items-end justify-content-between gap-4 mb-5" reveal>
+      <div>
+        <p class="label mb-3">/ Selected work</p>
+        <h2 class="mb-0">Hand-picked with LINQ.</h2>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <span class="label counter" aria-live="polite">
+          <span class="counter__now">{{ pad(active() + 1) }}</span> / {{ pad(total) }}
+        </span>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-ink nav-btn" (click)="prev()" aria-label="Previous project">←</button>
+          <button type="button" class="btn btn-outline-ink nav-btn" (click)="next()" aria-label="Next project">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- fanned deck -->
+    <div
+      class="stage"
+      reveal
+      [revealDelay]="120"
+      tabindex="0"
+      role="group"
+      aria-roledescription="carousel"
+      aria-label="Selected projects"
+      (pointerdown)="onPointerDown($event)"
+      (pointerup)="onPointerUp($event)"
+      (keydown)="onKey($event)"
+    >
+      @for (p of projects; track p.id; let i = $index) {
+        @let d = rel(i);
+        @let a = abs(d);
+        <article
+          class="slot"
+          [class.is-active]="d === 0"
+          [class.is-left]="d < 0"
+          [class.is-hidden]="a > 2"
+          [style.--d]="d"
+          [style.--a]="a"
+          [attr.aria-hidden]="d !== 0"
+          (click)="onSlotClick(i)"
+        >
+                   <div class="card pcard" [attr.inert]="d !== 0 ? '' : null">
+            <div class="card-body pcard__body">
+
+              <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+                <span class="label">Ref. {{ p.year }} / Arch-<span class="ox">{{ pad(i + 1) }}</span></span>
+                <span class="chip chip--active">{{ p.kind }}</span>
+              </div>
+
+              <div class="pcard__grid">
+                <div>
+                  <span class="pcard__rule" aria-hidden="true"></span>
+                  <h3 class="pcard__title">{{ p.title }}</h3>
+                  <p class="text-body-secondary mb-4">{{ p.summary }}</p>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    @for (l of p.links; track l.url; let first = $first) {
+                      <a
+                        class="btn"
+                        [class.btn-ox]="first"
+                        [class.btn-ox-outline]="!first"
+                        [href]="l.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >{{ l.label }} ↗</a>
+                    }
+                  </div>
+                </div>
+
+                <div>
+                  <dl class="specs">
+                    <div class="specs__row">
+                      <dt class="label">Role</dt>
+                      <dd>{{ p.role }}</dd>
+                    </div>
+                    <div class="specs__row">
+                      <dt class="label">Year</dt>
+                      <dd>{{ p.year }}</dd>
+                    </div>
+                  </dl>
+
+                  <div class="d-flex flex-wrap gap-2 mt-4">
+                    @for (s of p.stack; track s) {
+                      <span class="chip">{{ s }}</span>
+                    }
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- project picker -->
+    <div class="picker" reveal [revealDelay]="200" role="group" aria-label="Choose project">
+      @for (p of projects; track p.id; let i = $index) {
+        <button
+          type="button"
+          class="pick"
+          [class.is-on]="i === active()"
+          [attr.aria-pressed]="i === active()"
+          (click)="goTo(i)"
+        >{{ pad(i + 1) }} {{ p.short }}</button>
+      }
+    </div>
+
+    <p class="label d-lg-none mt-4 mb-0 text-center">Swipe or use the arrows</p>
+
+  </div>
+</section>

@@ -1,0 +1,115 @@
+.stack {
+  --ivory: #FAF8F5;
+  --ivory-dim: rgba(250, 248, 245, .55);
+  --ivory-line: rgba(250, 248, 245, .16);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  background: var(--ox);
+  color: var(--ivory);
+  overflow: hidden;
+}
+
+/* ───────── الشريطين (فوق وتحت) ───────── */
+.stack__bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ivory-line);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+.stack__bar--end {
+  padding: 1.25rem 0 0;
+  border-bottom: 0;
+  border-top: 1px solid var(--ivory-line);
+}
+
+/* ───────── الصفوف ───────── */
+.stack__rows {
+  display: grid;
+  gap: clamp(.75rem, 2vw, 1.5rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.mq {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.mq__track {
+  display: flex;
+  width: max-content;
+  animation: mq-scroll var(--dur, 60s) linear infinite;
+}
+.mq--rev .mq__track { animation-direction: reverse; }
+.mq:hover .mq__track { animation-play-state: paused; }
+
+.mq__group {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mq__item {
+  --space: clamp(1.25rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  padding-right: var(--space);   /* عشان المسافة تبقى ثابتة عند اللفة */
+}
+
+@keyframes mq-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* ───────── الكلمات ───────── */
+.word {
+  white-space: nowrap;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.word--serif,
+.word--italic {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  letter-spacing: -.01em;
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 28;
+}
+.word--italic { font-style: italic; }
+.word--mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(1.125rem, 2.8vw, 2.25rem);
+  letter-spacing: .12em;
+}
+
+/* الفواصل: / أو مربع صغير */
+.sep {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  line-height: 1;
+  color: rgba(250, 248, 245, .35);
+}
+.sep--dot {
+  width: .375rem;
+  height: .375rem;
+  background: rgba(250, 248, 245, .35);
+}
+
+/* ───────── reduced motion: بدون حركة، وبنسخة واحدة قابلة للتمرير ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .mq { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .mq__track { animation: none; }
+  .mq__group[data-copy='1'] { display: none; }
+}

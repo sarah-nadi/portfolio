@@ -1,0 +1,132 @@
+.sys {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+}
+@media (min-width: 992px) { .sys { padding: 2rem; } }
+
+.sys__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.sys__dot { width: .375rem; height: .375rem; background: var(--ox); }
+
+/* ───────── pipeline: rail عمودي على الموبايل والتابلت ───────── */
+.flow {
+  --gap: 2rem;
+  --rail: var(--bs-tertiary-color);
+  display: grid;
+  max-width: 44rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow__item { position: relative; padding: 0 0 1.75rem 2.5rem; }
+.flow__item:last-child { padding-bottom: 0; }
+
+.flow__node {
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: .775rem;
+  height: .775rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--ink);
+}
+.flow__item.is-core .flow__node { background: var(--ox); border-color: var(--ox); }
+
+/* الخط (متقطع ومتحرك لتحت) */
+.flow__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: calc(.4375rem - .5px);
+  top: calc(1.25rem + .875rem);
+  bottom: -1.25rem;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--rail) 50%, transparent 50%) 0 0 / 1px 8px repeat-y;
+  animation: flow-y .8s linear infinite;
+}
+
+/* رأس السهم */
+.flow__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(.4375rem - 4px);
+  bottom: calc(-1.25rem + 6px);
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid var(--rail);
+  border-bottom: 1px solid var(--rail);
+  transform: rotate(45deg);
+}
+
+@keyframes flow-y { to { background-position: 0 8px; } }
+@keyframes flow-x { to { background-position: 8px 0; } }
+
+/* ───────── خطوات ───────── */
+.step { height: 100%; }
+.step__body {
+  display: flex;
+  flex-direction: column;
+  gap: .625rem;
+  height: 100%;
+  padding: 1rem 1.125rem;
+}
+.step__phase { color: var(--bs-secondary-color); }
+.step__title { margin: 0; font-size: 1.5rem; line-height: 1.15; }
+.step__detail {
+  flex: 1;
+  margin: 0;
+  font-size: .875rem;
+  line-height: 1.5;
+  color: var(--bs-secondary-color);
+}
+.step__tag {
+  margin-top: .5rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--line);
+}
+.step.is-core { border-color: var(--ox); }
+.step.is-core .step__phase { color: var(--ox); }
+
+/* ───────── أفقي على الشاشات الكبيرة ───────── */
+@media (min-width: 1200px) {
+  .flow {
+    max-width: none;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: var(--gap);
+  }
+  .flow__item { padding: 0; }
+  .flow__node { display: none; }
+  .step__body { padding: 1.25rem; }
+
+  .flow__item:not(:last-child)::before {
+    top: 50%;
+    left: 100%;
+    bottom: auto;
+    width: var(--gap);
+    height: 1px;
+    background: linear-gradient(to right, var(--rail) 50%, transparent 50%) 0 0 / 8px 1px repeat-x;
+    animation-name: flow-x;
+  }
+  .flow__item:not(:last-child)::after {
+    top: calc(50% - 4px);
+    left: calc(100% + var(--gap) - 10px);
+    bottom: auto;
+    transform: rotate(-45deg);
+  }
+}
+
+/* ───────── capabilities ───────── */
+.cap { height: 100%; }
+.cap__body { padding: 1rem 1.25rem; }
+.cap__value { font-size: .9375rem; line-height: 1.4; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow__item::before { animation: none; }
+}

@@ -1,0 +1,41 @@
+<section id="stack" class="stack">
+
+  <div class="container-xxl px-4 px-lg-5" reveal>
+    <div class="stack__bar">
+      <span>System taxonomy</span>
+      <span>High-fashion editorial taxonomy</span>
+    </div>
+  </div>
+
+  <!-- للـ screen readers -->
+  <ul class="visually-hidden">
+    @for (n of names; track n) { <li>{{ n }}</li> }
+  </ul>
+
+  <div class="stack__rows" aria-hidden="true" reveal [revealDelay]="120">
+    @for (r of rows; track $index) {
+      <div class="mq" [class.mq--rev]="r.reverse" [style.--dur]="r.duration + 's'">
+        <div class="mq__track">
+          @for (c of copies; track c) {
+            <ul class="mq__group" [attr.data-copy]="c">
+              @for (w of r.group; track $index; let i = $index) {
+                <li class="mq__item">
+                  <span class="word word--{{ w.style }}">{{ w.text }}</span>
+                  <i class="sep" [class.sep--dot]="i % 2 === 1">{{ i % 2 === 0 ? '/' : '' }}</i>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="container-xxl px-4 px-lg-5" reveal>
+    <div class="stack__bar stack__bar--end">
+      <span>Engineered with architectural restraint &amp; absolute determinism</span>
+      <span>Zero bulk // 100% native performance</span>
+    </div>
+  </div>
+
+</section>

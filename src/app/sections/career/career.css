@@ -1,0 +1,128 @@
+.career__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem 2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.career__timeline {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+
+/* ───────── list: عمود واحد بخط توصيل على الموبايل والتابلت ───────── */
+.career__list {
+  display: grid;
+  gap: 1rem;
+  max-width: 44rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.career__item { position: relative; padding-left: 2.25rem; }
+
+.career__node {
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: .875rem;
+  height: .875rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--ink);
+}
+.career__item:last-child .career__node { background: var(--ox); border-color: var(--ox); }
+
+.career__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: calc(.4375rem - .5px);
+  top: 2.125rem;
+  bottom: -2.25rem;
+  width: 1px;
+  background: var(--bs-tertiary-color);
+}
+
+/* ───────── 4 كروت جنب بعض على الشاشات الكبيرة ───────── */
+@media (min-width: 1200px) {
+  .career__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: none;
+  }
+  .career__item { padding-left: 0; }
+  .career__node { display: none; }
+  .career__item::before { display: none; }
+}
+
+/* ───────── card ───────── */
+.stage { --bs-card-bg: #fff; height: 100%; }
+.stage__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
+}
+
+.stage__label {
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ox);
+}
+.stage__year {
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .06em;
+  color: var(--bs-tertiary-color);
+}
+
+.stage__title {
+  margin: 1rem 0 .75rem;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+.stage__content { flex: 1; margin-bottom: 1.25rem; }
+.stage__detail {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  line-height: 1.7;
+  color: var(--bs-secondary-color);
+}
+
+.stage__points { display: grid; gap: .75rem; margin: 1rem 0 0; }
+.stage__points > div { padding-top: .75rem; border-top: 1px solid var(--line); }
+.stage__points dt {
+  margin-bottom: .25rem;
+  font-family: var(--font-mono);
+  font-size: .5625rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+.stage__points dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.stage__points > div:first-child dd { color: var(--ox); }   /* التقدير بوردو */
+.stage__tag {
+  padding-top: .875rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+.stage__tag--accent { color: var(--ox); font-weight: 600; }

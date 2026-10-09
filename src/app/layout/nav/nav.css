@@ -1,0 +1,61 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1030;
+  padding: .5rem 1rem 0;
+}
+@media (min-width: 992px) { .site-header { padding-inline: 2.5rem; } }
+
+.strip {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 0 .25rem .5rem;
+  max-height: 2rem;
+  overflow: hidden;
+  transition: max-height .3s var(--ease), opacity .3s var(--ease), padding .3s var(--ease);
+}
+.strip .label { font-size: .625rem; }
+.is-scrolled .strip { max-height: 0; opacity: 0; padding-bottom: 0; }
+
+.bar {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: .625rem 1rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--line);
+  transition: border-color .3s var(--ease);
+}
+.is-scrolled .bar { border-color: var(--ink); }
+
+/* brand */
+.brand { display: flex; flex-direction: column; line-height: 1.2; padding: 0; margin: 0; }
+.brand__name {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.brand__role {
+  font-family: var(--font-mono);
+  font-size: .5625rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+
+/* links */
+.nav-link {
+  padding: .25rem 0;
+  color: var(--bs-secondary-color);
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav-link:hover,
+.nav-link.active { color: var(--ox); border-bottom-color: var(--ox); }
+
+/* toggler */
+.navbar-toggler { border-color: var(--line); padding: .25rem .5rem; }
+.navbar-toggler:focus { box-shadow: none; border-color: var(--ox); }
+
+.btn-ink { --bs-btn-bg: #4A0B16; --bs-btn-border-color: #4A0B16; --bs-btn-hover-bg: #121214; --bs-btn-hover-border-color: #121214; }

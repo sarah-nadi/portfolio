@@ -1,0 +1,238 @@
+/* ───────── heading ───────── */
+.contact__title {
+  max-width: 48rem;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+}
+
+.contact { padding-block: clamp(3rem, 6vw, 5rem); }
+
+.contact__code {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: clamp(.8125rem, 1.4vw, 1rem);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.kw { color: var(--ox); font-weight: 600; }
+.str { color: var(--bs-tertiary-color); }
+
+.contact__lead {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--bs-secondary-color);
+}
+
+.contact__body {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--line);
+}
+/* ───────── labels (mono) ───────── */
+.k {
+  display: block;
+  margin-bottom: .75rem;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+
+/* ───────── direct comms ───────── */
+.mail {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .8125rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: color .2s;
+}
+.mail:hover { color: var(--ox); }
+
+.note {
+  margin: .875rem 0 0;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  line-height: 1.6;
+  color: var(--bs-secondary-color);
+}
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.sent--err { color: var(--ox); }
+
+.rule { margin: 1.75rem 0; border: 0; border-top: 1px solid var(--line); opacity: 1; }
+
+/* ───────── links tiles ───────── */
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 576px) and (max-width: 991.98px) { .links { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1200px) { .links { grid-template-columns: repeat(4, 1fr); } }
+
+.tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  padding: .875rem .75rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: border-color .2s, color .2s;
+}
+.tile:hover { border-color: var(--ox); color: var(--ox); }
+.tile__arrow { transition: transform .2s var(--ease); }
+.tile:hover .tile__arrow { transform: translate(2px, -2px); }
+
+.coords {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: .875rem 0;
+  border-block: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.status {
+  margin-top: 1.75rem;
+  padding: 1rem 1.125rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.status__title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ox);
+}
+.status__title i { width: .4375rem; height: .4375rem; flex: none; background: var(--ox); }
+.status__text {
+  margin: .5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  color: var(--bs-secondary-color);
+}
+
+/* ───────── form ───────── */
+.dispatch {
+  padding: 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+@media (min-width: 992px) { .dispatch { padding: 2rem; } }
+
+.dispatch__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.dispatch__title {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.field { margin: 0 0 1.5rem; padding: 0; border: 0; min-width: 0; }
+.field__label {
+  display: block;
+  float: none;
+  width: auto;
+  margin: 0 0 .5rem;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  line-height: 1.5;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+
+.field .form-control {
+  padding: .75rem .875rem;
+  font-size: .875rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--ink);
+}
+.field .form-control:focus { border-color: var(--ox); box-shadow: none; }
+.field .form-control.is-bad { border-color: var(--ox); }
+.field textarea.form-control { min-height: 7rem; resize: vertical; }
+
+.field__err {
+  margin: .5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .04em;
+  color: var(--ox);
+}
+
+/* domain chips (radio) */
+.dchip { position: relative; margin: 0; cursor: pointer; }
+.dchip input { position: absolute; opacity: 0; pointer-events: none; }
+.dchip span {
+  display: inline-block;
+  padding: .5rem .875rem;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.dchip:hover span { border-color: var(--ox); }
+.dchip input:checked + span { background: var(--ox); border-color: var(--ox); color: var(--bs-body-bg); }
+.dchip input:focus-visible + span { outline: 1px solid var(--ox); outline-offset: 3px; }
+
+/* button */
+.btn-ox {
+  --bs-btn-color: #FAF8F5;
+  --bs-btn-bg: #4A0B16;
+  --bs-btn-border-color: #4A0B16;
+  --bs-btn-hover-color: #FAF8F5;
+  --bs-btn-hover-bg: #280005;
+  --bs-btn-hover-border-color: #280005;
+  --bs-btn-active-color: #FAF8F5;
+  --bs-btn-active-bg: #280005;
+  --bs-btn-active-border-color: #280005;
+}
+
+.sent {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: .875rem;
+  color: var(--bs-secondary-color);
+}
+.sent a { text-decoration: underline; text-underline-offset: 3px; }
