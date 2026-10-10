@@ -108,11 +108,11 @@
 }
 
 /* ───────── reduced motion: بدون حركة، وبنسخة واحدة قابلة للتمرير ───────── */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   .mq { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
   .mq__track { animation: none; }
   .mq__group[data-copy='1'] { display: none; }
-}
+} */
 
 @media (max-width: 767.98px) {
   .stack__rows { gap: 1.75rem; }

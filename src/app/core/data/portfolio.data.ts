@@ -243,8 +243,8 @@ export interface StackWord {
 
 export interface StackRow {
   words: StackWord[];
-  repeat: number;      // تكرار الكلمات جوه الصف عشان يملا عرض الشاشة
-  duration: number;    // ثواني للفة كاملة (أكبر = أبطأ)
+  repeat: number;      
+  duration: number;    // in seconds
   reverse?: boolean;
 }
 
@@ -264,6 +264,7 @@ export const STACK_ROWS: readonly StackRow[] = [
     reverse: true,
     words: [
       { text: 'EF Core', style: 'italic' },
+       { text: 'Web API', style: 'serif' },
       { text: 'SQL Server', style: 'mono' },
       { text: 'SignalR', style: 'serif' },
     ],
@@ -274,6 +275,7 @@ export const STACK_ROWS: readonly StackRow[] = [
     words: [
       { text: 'Payment Integration', style: 'italic' },
       { text: 'TypeScript', style: 'mono' },
+      { text: 'LINQ' , style: 'serif'}
     ],
   },
 ];
@@ -281,11 +283,11 @@ export const STACK_ROWS: readonly StackRow[] = [
 export interface ContactLink {
   label: string;
   url: string;
-  external?: boolean;   // يفتح في تاب جديد
+  external?: boolean;  
 }
 
 export const CONTACT = {
-  email: 'saranadi411@gmail.com',      // سيبي الإيميل اللي عندك
+  email: 'saranadi411@gmail.com',      
   location: 'Cairo, Egypt (UTC+2)',
   links: [
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/sara-nadi-56b5362bb', external: true },   // حطي لينكك هنا
@@ -296,4 +298,4 @@ export const CONTACT = {
   domains: ['Full stack system', '.NET core backend', 'Angular architecture'] as readonly string[],
 };
 
-export const CV_URL = 'Sara Nadi CV.pdf';   
+export const CV_URL = 'Sara Nadi_Full Stack Developer_CV.pdf';   

@@ -178,3 +178,10 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; }
   --bs-btn-active-bg: #4A0B16;
   --bs-btn-active-border-color: #4A0B16;
 }
+
+:root { --opsz: 16; }   /* 11 = أمتن شكل | 28 = اللي كان في الـ hero | 96 = أرفع تباين */
+
+:is(h1, h2, h3, .font-display, .hero__name, .hero__title, .about__title, .about__quote, .word--serif, .word--italic) {
+  font-optical-sizing: none !important;
+  font-variation-settings: 'opsz' var(--opsz) !important;
+}
