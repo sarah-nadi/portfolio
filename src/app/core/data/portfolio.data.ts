@@ -41,7 +41,8 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'A platform that brings donors, patients and hospitals together. Backed by an AI layer — RAG, a fine-tuned model and an AI agent — with real-time updates over SignalR.',
     stack: ['Angular 21', '.NET 8', 'RAG', 'Fine-tuning', 'AI Agent', 'SignalR'],
-    links: [{ label: 'GitHub (Frontend)', url: 'https://github.com/sarah-nadi/wareed' }],
+    links: [{ label : 'watch demo' , url : 'https://lnkd.in/p/eA6EuiVj'},
+      { label: 'GitHub (Frontend)', url: 'https://github.com/sarah-nadi/wareed' }],
   },
   {
     id: 'civil-registration',
@@ -54,6 +55,7 @@ export const PROJECTS: readonly Project[] = [
       'An MVC platform connecting citizens with the civil registry, letting them book appointments and obtain official government documents.',
     stack: ['ASP.NET Core MVC', '.NET 8', 'EF Core', 'SQL Server'],
     links: [
+      { label : 'watch demo' , url : 'https://lnkd.in/p/eDgwB-Fm'},
       {
         label: 'GitHub',
         url: 'https://github.com/MenaMagdyEbied/Civil-Registration-System-Platform',
@@ -70,7 +72,8 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'A C# desktop application built with Windows Forms, backed by EF Core and SQL Server on .NET 8.',
     stack: ['C#', 'Windows Forms', '.NET 8', 'EF Core', 'SQL Server'],
-    links: [{ label: 'GitHub', url: 'https://github.com/MenaMagdyEbied/Repair-Flow' }],
+    links: [{ label : 'watch demo' , url : 'https://lnkd.in/p/ejWegZZD'},
+      { label: 'GitHub', url: 'https://github.com/MenaMagdyEbied/Repair-Flow' }],
   },
   {
     id: 'fresh-cart',
@@ -82,7 +85,10 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'An e-commerce front end built with Angular 17 as my Route Academy graduation project.',
     stack: ['Angular 17', 'HTML5', 'CSS3', 'Bootstrap'],
-    links: [{ label: 'Live site', url: 'https://fresh-cart-eskm.vercel.app/' }],
+    links: [
+      { label: 'Live site', url: 'https://fresh-cart-eskm.vercel.app/' },
+      { label: 'GitHub', url: 'https://github.com/sarah-nadi/fresh-cart' },
+    ],
   },
   {
     id: 'yummy',
@@ -183,6 +189,7 @@ export const PLEDGE =
   accent?: boolean;   // tag بوردو
   timeline: string;   // النص في الخط الزمني اللي فوق على اليمين
    points?: { label: string; value: string }[];
+   certificateURL?: string;
 }
 
 export const CAREER: readonly CareerStage[] = [
@@ -211,6 +218,7 @@ export const CAREER: readonly CareerStage[] = [
     tag: 'Route diploma',
     accent: true,
     timeline: '2025-26 Frontend',
+    certificateURL: 'https://drive.google.com/file/d/1XayhQxkJZUg75GQVf79EIjErTcp6d8HL/view?usp=sharing',
   },
   {
     label: 'Stage 03',
@@ -221,6 +229,7 @@ export const CAREER: readonly CareerStage[] = [
     tag: 'ITI scholarship',
     accent: true,
     timeline: '2026 .NET',
+    certificateURL: 'https://drive.google.com/file/d/1lYrCqu20xx36fdDJA0eaHy9TVPQlWZpP/view?usp=sharing',
   },
   {
     label: 'Current',

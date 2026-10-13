@@ -32,7 +32,12 @@
                     }
                   </dl>
                 }
+               
               </div>
+           
+               @if (s.certificateURL) {
+                <a class="link mb-4" [href]="s.certificateURL" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+              }
 
               <span class="stage__tag" [class.stage__tag--accent]="s.accent">{{ s.tag }}</span>
             </div>

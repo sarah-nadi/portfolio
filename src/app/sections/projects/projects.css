@@ -90,6 +90,8 @@
   --bs-btn-active-border-color: #4A0B16;
 }
 
+
+.pcard .btn { white-space: nowrap; }
 /* ───────── picker ───────── */
 .picker { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
 .pick {

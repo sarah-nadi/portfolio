@@ -126,3 +126,9 @@
   color: var(--bs-tertiary-color);
 }
 .stage__tag--accent { color: var(--ox); font-weight: 600; }
+
+.link{
+  font-family: var(--font-mono);
+  font-size: .725rem;
+ 
+}

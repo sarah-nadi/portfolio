@@ -85,9 +85,18 @@
                     </div>
                   </dl>
 
-                  <div class="d-flex flex-wrap gap-2 mt-4">
-                    @for (s of p.stack; track s) {
-                      <span class="chip">{{ s }}</span>
+                                    <div class="d-flex flex-wrap gap-2">
+                    @for (l of p.links; track l.label; let first = $first) {
+                      @if (l.url) {
+                        <a
+                          class="btn"
+                          [class.btn-ox]="first"
+                          [class.btn-ox-outline]="!first"
+                          [href]="l.url"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >{{ l.label }} ↗</a>
+                      }
                     }
                   </div>
                 </div>
