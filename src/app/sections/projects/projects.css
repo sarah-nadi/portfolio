@@ -120,3 +120,21 @@
 /* 
 كل الزوايا حادة
 *, *::before, *::after { border-radius: 30px !important; } */
+
+.pcard__grid { align-content: start; }
+
+/* ───────── موبايل: أقصر وأضيق ───────── */
+@media (max-width: 767.98px) {
+  /* الكروت اللي ورا مبتحددش ارتفاع الـ deck، فبياخد ارتفاع الكارت النشط بس */
+  .slot:not(.is-active) { contain: size; }
+  .slot:not(.is-active) .pcard { overflow: hidden; }
+
+  .pcard__body { padding: 1rem; }
+  .pcard__grid { gap: 1.25rem; flex: none; }
+  .pcard__rule { margin-bottom: .875rem; }
+  .pcard__title { margin-bottom: .625rem; }
+  .specs__row { padding: .5rem 0; }
+
+  /* الأزرار جنب بعض */
+  .pcard .btn { --bs-btn-padding-x: .625rem; }
+}

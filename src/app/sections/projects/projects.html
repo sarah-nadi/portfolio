@@ -2,7 +2,7 @@
   <div class="container-xxl px-4 px-lg-5">
 
     <!-- header + counter + arrows -->
-    <div class="d-flex flex-wrap align-items-end justify-content-between gap-4 mb-5" reveal>
+    <div class="d-flex flex-wrap align-items-end justify-content-between gap-4 mb-5 mb-md-4" reveal>
       <div>
         <p class="label mb-3">/ Selected work</p>
         <h2 class="mb-0">Hand-picked with LINQ.</h2>
@@ -45,7 +45,7 @@
           [attr.aria-hidden]="d !== 0"
           (click)="onSlotClick(i)"
         >
-                   <div class="card pcard" [attr.inert]="d !== 0 ? '' : null">
+                           <div class="card pcard" [attr.inert]="d !== 0 ? '' : null">
             <div class="card-body pcard__body">
 
               <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
@@ -54,38 +54,14 @@
               </div>
 
               <div class="pcard__grid">
+
+                <!-- العمود الشمال: العنوان والوصف والأزرار -->
                 <div>
                   <span class="pcard__rule" aria-hidden="true"></span>
                   <h3 class="pcard__title">{{ p.title }}</h3>
-                  <p class="text-body-secondary mb-4">{{ p.summary }}</p>
+                  <p class="text-body-secondary mb-4 mb-md-4">{{ p.summary }}</p>
 
                   <div class="d-flex flex-wrap gap-2">
-                    @for (l of p.links; track l.url; let first = $first) {
-                      <a
-                        class="btn"
-                        [class.btn-ox]="first"
-                        [class.btn-ox-outline]="!first"
-                        [href]="l.url"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >{{ l.label }} ↗</a>
-                    }
-                  </div>
-                </div>
-
-                <div>
-                  <dl class="specs">
-                    <div class="specs__row">
-                      <dt class="label">Role</dt>
-                      <dd>{{ p.role }}</dd>
-                    </div>
-                    <div class="specs__row">
-                      <dt class="label">Year</dt>
-                      <dd>{{ p.year }}</dd>
-                    </div>
-                  </dl>
-
-                                    <div class="d-flex flex-wrap gap-2">
                     @for (l of p.links; track l.label; let first = $first) {
                       @if (l.url) {
                         <a
@@ -100,8 +76,28 @@
                     }
                   </div>
                 </div>
-              </div>
 
+                <!-- العمود اليمين: المواصفات والـ stack -->
+                <div>
+                  <dl class="specs">
+                    <div class="specs__row">
+                      <dt class="label">Role</dt>
+                      <dd>{{ p.role }}</dd>
+                    </div>
+                    <div class="specs__row">
+                      <dt class="label">Year</dt>
+                      <dd>{{ p.year }}</dd>
+                    </div>
+                  </dl>
+
+                  <div class="d-flex flex-wrap gap-2 mt-4 mt-md-4">
+                    @for (s of p.stack; track s) {
+                      <span class="chip">{{ s }}</span>
+                    }
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </article>

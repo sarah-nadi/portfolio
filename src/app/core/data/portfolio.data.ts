@@ -28,7 +28,7 @@ export const PROJECTS: readonly Project[] = [
     stack: ['Angular 21', '.NET 10', 'Web API', 'EF Core', 'Paymob'],
     links: [
       { label: 'Live site', url: 'https://najma-cwdc.vercel.app/' },
-      { label: 'GitHub', url: 'https://github.com/sarah-nadi/najma' },
+      { label: 'ٌRepo', url: 'https://github.com/sarah-nadi/najma' },
     ],
   },
   {
@@ -42,7 +42,7 @@ export const PROJECTS: readonly Project[] = [
       'A platform that brings donors, patients and hospitals together. Backed by an AI layer — RAG, a fine-tuned model and an AI agent — with real-time updates over SignalR.',
     stack: ['Angular 21', '.NET 8', 'RAG', 'Fine-tuning', 'AI Agent', 'SignalR'],
     links: [{ label : 'watch demo' , url : 'https://lnkd.in/p/eA6EuiVj'},
-      { label: 'GitHub (Frontend)', url: 'https://github.com/sarah-nadi/wareed' }],
+      { label: 'Repo', url: 'https://github.com/sarah-nadi/wareed' }],
   },
   {
     id: 'civil-registration',
@@ -57,7 +57,7 @@ export const PROJECTS: readonly Project[] = [
     links: [
       { label : 'watch demo' , url : 'https://lnkd.in/p/eDgwB-Fm'},
       {
-        label: 'GitHub',
+        label: 'Repo',
         url: 'https://github.com/MenaMagdyEbied/Civil-Registration-System-Platform',
       },
     ],
@@ -73,7 +73,7 @@ export const PROJECTS: readonly Project[] = [
       'A C# desktop application built with Windows Forms, backed by EF Core and SQL Server on .NET 8.',
     stack: ['C#', 'Windows Forms', '.NET 8', 'EF Core', 'SQL Server'],
     links: [{ label : 'watch demo' , url : 'https://lnkd.in/p/ejWegZZD'},
-      { label: 'GitHub', url: 'https://github.com/MenaMagdyEbied/Repair-Flow' }],
+      { label: 'Repo', url: 'https://github.com/MenaMagdyEbied/Repair-Flow' }],
   },
   {
     id: 'fresh-cart',
@@ -87,7 +87,7 @@ export const PROJECTS: readonly Project[] = [
     stack: ['Angular 17', 'HTML5', 'CSS3', 'Bootstrap'],
     links: [
       { label: 'Live site', url: 'https://fresh-cart-eskm.vercel.app/' },
-      { label: 'GitHub', url: 'https://github.com/sarah-nadi/fresh-cart' },
+      { label: 'Repo', url: 'https://github.com/sarah-nadi/fresh-cart' },
     ],
   },
   {
@@ -102,7 +102,7 @@ export const PROJECTS: readonly Project[] = [
     stack: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     links: [
       { label: 'Live site', url: 'https://sarah-nadi.github.io/yummy/' },
-      { label: 'GitHub', url: 'https://github.com/sarah-nadi/yummy' },
+      { label: 'Repo', url: 'https://github.com/sarah-nadi/yummy' },
     ],
   },
 ];
